@@ -1,0 +1,31 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'rate.css' %}" type="text/css" media="all" />
+  <title>Подбор похожей музыки</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="title">Оцените исполнителей:</h2>
+    <form class="artists_container" action="{% url 'predict' %}" method="post">
+      {% csrf_token %}
+      {% for artist in artist_list %}
+      <div class="artist">
+        {{ artist.Artist_name }}
+        <input class="ratingInput" type="range" min="0" max="10" step="1" name="{{artist.Artist_id}}"
+          id="rating-{{forloop.counter0}}" value="5" />
+        <label for="rating-{{forloop.counter0}}">5/10</label>
+      </div>
+      {% endfor %}
+      <input class="button" type="submit" value="Подобрать похожие">
+    </form>
+  </div>
+  <script src="{% static 'app.js' %}"></script>
+</body>
+
+</html>

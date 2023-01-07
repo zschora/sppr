@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 48px;
+  background: #c5cae9;
+  display: flex;
+  flex-direction: column;
+}
+
+.back_link {
+  align-self: flex-start;
+}
+
+.title {
+  margin: 24px 0;
+}
+
+.artists {
+  display: flex;
+  flex-direction: column;
+}
+
+.artist {
+  color: black;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
